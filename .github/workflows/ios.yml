@@ -5,7 +5,7 @@ on: [push]
 jobs:
   build:
     runs-on: macos-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
 
     env:
       DEVELOPER_DIR: /Applications/Xcode_13.3.app
@@ -50,5 +50,5 @@ jobs:
 
     - run: brew tap wix/brew
     - run: brew install applesimutils
-    - run: yarn detox build e2e --configuration ios.sim.release
-    - run: yarn detox test e2e --configuration ios.sim.release --cleanup --debug-synchronization 200
+    - run: detox build --configuration ios.sim.release
+    - run: detox test --configuration ios.sim.release
